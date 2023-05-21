@@ -1,12 +1,9 @@
-import install_requirements
 
 import cv2
 from faceMeshModule import faceMeshDetection
+from putTextModule import putText
 
-# font
-font = cv2.FONT_HERSHEY_SIMPLEX
-
-video = 'Video.mp4'
+video = 'C:/Users/buysa/OneDrive/Documents/pythonProjects/blink_counter/Recording.mp4'
 cap = cv2.VideoCapture(video)
 detector = faceMeshDetection()
 
@@ -41,7 +38,7 @@ while run:
         d = (W * f) / w
 
         # Adding distance text
-        img = cv2.putText(img, f'Distance : {d:.1f}cm', (face[10][0]-100, face[10][1]), font, 3, (255, 0, 0), 3, cv2.LINE_AA)
+        img = putText(img, f'Distance : {d:.1f}cm', (face[10][0]-100, face[10][1]))
 
 
     img = cv2.resize(img, (640, 360))
